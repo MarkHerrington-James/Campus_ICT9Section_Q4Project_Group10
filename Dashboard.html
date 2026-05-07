@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard / Student Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0d2a4a;
+            --cyan: #00bcd4;
+            --glass: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #b8d8d8 url('sky.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            padding-top: 80px; 
+        }
+
+        .status-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            margin: 0 15px;
+            font-size: 15px;
+        }
+
+        .active-btn {
+            background: var(--navy);
+            padding: 8px 20px;
+            border-radius: 50px;
+        }
+
+        .dashboard-container {
+            background: white;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 15px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 70vh;
+        }
+
+        .internal-sidebar {
+            width: 250px;
+            background: #212529;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .sidebar-logo {
+            width: 60px;
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .side-link {
+            display: block;
+            color: #bbb;
+            text-decoration: none;
+            padding: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .side-link:hover, .side-link.active {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 40px;
+            background: #fff;
+        }
+
+        .dash-header-pill {
+            background: #1a1a1a;
+            color: white;
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .sub-label { font-weight: 600; color: #666; margin-bottom: 40px; }
+
+        .curriculum-title { color: var(--cyan); font-weight: 400; font-size: 32px; }
+        .curriculum-sub { font-size: 26px; text-decoration: underline; margin-bottom: 30px; }
+
+        .quarter-highlight {
+            background: var(--cyan);
+            padding: 2px 8px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        ul { list-style: none; padding-left: 20px; }
+        li { margin-bottom: 5px; color: #444; position: relative; }
+        li::before { content: "○"; position: absolute; left: -20px; color: #aaa; }
+
+        .main-footer {
+            background: rgba(0,0,0,0.1);
+            text-align: right;
+            padding: 10px 40px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #555;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="status-bar">
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="profile.html">profile</a>
+            <a href="dashboard.html" class="active-btn">Dashboard</a>
+            <a href="tasks.html">Trips</a>
+            <a href="notebooks.html">My Travel Book</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active-btn" onclick="logout()">Logout</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="internal-sidebar">
+            <a href="dashboard.html" class="side-link active">Dashboard</a>
+            <a href="notebooks.html" class="side-link">Virtual Notebooks</a>
+            <a href="tasks.html" class="side-link">Tasks</a>
+            <a href="profile.html" class="side-link">Profile</a>
+            <a href="index.html" class="side-link" style="margin-top: 50px;">Logout</a>
+        </aside>
+
+        <main class="content-area">
+            <div class="dash-header-pill">Dashboard</div>
+            <p class="sub-label">Quarter Work Plan</p>
+
+            <h1 class="curriculum-title">Information and Communications Technology</h1>
+            <h2 class="curriculum-sub">The Curriculum</h2>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="quarter-highlight">I. 1st Quarter</div>
+                    <ul>
+                        <li>Introduction to HTML</li>
+                        <li>Basic CSS Styling</li>
+                        <li>Quarter Project</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="quarter-highlight">II. 2nd Quarter</div>
+                    <ul>
+                        <li>Introduction to Bootstrap</li>
+                        <li>Bootstrap with Forms</li>
+                        <li>Quarter Project</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="quarter-highlight">III. 3rd Quarter</div>
+                    <ul>
+                        <li>Introduction to JavaScript</li>
+                        <li>Functions and Events</li>
+                        <li>Quarter Project</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="quarter-highlight">IV. 4th Quarter</div>
+                    <ul>
+                        <li>Conditional Statements</li>
+                        <li>Iteration Statements</li>
+                        <li>Quarter Project</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        Mark Anthonyn Herrington / Grade 9-Emerald
+    </footer>
+    <script>
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "index.html"; 
+        }
+    </script>
+</body>
+</html>
